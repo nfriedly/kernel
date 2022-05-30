@@ -43,7 +43,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         cd ${{ inputs.submodule || '.' }}
-        make miyoo_defconfig
+        make miyoo_${{ matrix.variant }}_defconfig
         make
         
         # put everything in the same folder so that we can grab it all as a single artifact
